@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia</title>
+</head>
+<body onload="trivia.listCategories()" >
+ 
+    <fieldset style="max-width: 250px;" >
+        <legend >Let's play Trivia</legend>
+        <form>
+
+            <!--categories-->
+            Category:
+            <select name="categories" id="categories" onChange="trivia.listQuestionsAndAnswers()">
+                <option value="">Select</option>
+            </select><br><br>
+            
+
+            <fieldset id="q1" hidden>   
+                <legend>Question 1</legend>
+                <!--questions/answers selection-->
+                <p name="question1" id="question1" hidden></p>
+                <select name="answers1" id="answers1" onChange="trivia.checkAnswer1()"  hidden>
+                    <option value="" >Select</option>
+                </select>
+                <div id="checkAnswer1" ></div>      
+            </fieldset>
+
+            <fieldset id="q2" hidden>  
+                <legend>Question 2</legend>
+                <p name="question2" id="question2" hidden></p>
+                <select name="answers2" id="answers2" onChange="trivia.checkAnswer2()"  hidden>
+                    <option value="" >Select</option>
+                </select>
+                <div id="checkAnswer2"></div>
+            </fieldset>  
+
+            <fieldset id="q3" hidden>  
+                <legend>Question 3</legend>
+                <p name="question3" id="question3" hidden></p>
+                <select name="answers3" id="answers3" onChange="trivia.checkAnswer3()"  hidden>
+                    <option value="" >Select</option>
+                </select>
+                <div id="checkAnswer3"></div>
+            </fieldset>   
+
+            <fieldset id="q4" hidden>  
+                <legend>Question 4</legend>
+                <p name="question4" id="question4" hidden></p>
+                <select name="answers4" id="answers4" onChange="trivia.checkAnswer4()"  hidden>
+                    <option value="" >Select</option>
+                </select>
+                <div id="checkAnswer4"></div>
+            </fieldset> 
+
+            <fieldset id="q5" hidden>  
+                <legend>Question 5</legend>
+                <p name="question5" id="question5" hidden></p>
+                <select name="answers5" id="answers5" onChange="trivia.checkAnswer5()"  hidden>
+                    <option value="" >Select</option>
+                </select>
+                <div id="checkAnswer5"></div>
+               
+           
+        </form>
+        <br>
+    </fieldset>
+    
+    <button id="button1" onClick="document.location.reload(true)"  hidden>Play again?</button>
+  <hr>
+    <button id="button2" onClick="document.location.reload(true)"  >Start over?</button>   
+    <script src="trivia.js"></script>
+</body>
+</html>
