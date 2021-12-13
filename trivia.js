@@ -1,12 +1,6 @@
 let trivia = {
-    // playerCategory: "",
-    // playerQuestion: "",
-    // playerAnswer: "",
-    // playerResult: "",
-    // categories: [],
-    // categoryQuestions: [],
-    // incorrectAnswers: [[],[],[],[],[]],
-    // correctAnswer: [],
+   
+    score: 0,
     listCategories: function() {    
        
         //step 1: URL
@@ -39,7 +33,7 @@ let trivia = {
     listQuestionsAndAnswers: function(){
         playerCategory = categories.options[categories.selectedIndex].value  //category selected by player
        
-        document.getElementById("q1").hidden = false
+        document.getElementById("fieldset1").hidden = false
         document.getElementById("categories").disabled = true
         document.getElementById("question1").hidden = false
         document.getElementById("answers1").hidden = false     
@@ -95,17 +89,23 @@ let trivia = {
         this.playerAnswer1 = document.getElementById("answers1").value 
         this.correctAnswer1 = document.getElementById("cAnswer1").value
      
-        if (this.playerAnswer1 == this.correctAnswer1) {         
+        if (this.playerAnswer1 == this.correctAnswer1) {   
+            this.score += 20    
             document.getElementById("checkAnswer1").innerHTML = "You are Correct!"
+            document.getElementById("score").innerHTML = "Total score: " + this.score 
             document.getElementById("answers1").disabled = true; 
+        
             //document.getElementById("q2").hidden = false; 
             
-            document.getElementById("q2").hidden = false
+            document.getElementById("fieldset2").hidden = false
             document.getElementById("question2").hidden = false; 
             document.getElementById("answers2").hidden = false; 
 
         } else {
+            
+            document.getElementById("score").innerHTML = "Total score: " + this.score 
             document.getElementById("checkAnswer1").innerHTML = "Nope! Select again."
+            
         }
     },    
     checkAnswer2: function(){
@@ -115,12 +115,15 @@ let trivia = {
         this.correctAnswer2 = document.getElementById("cAnswer2").value
     
         if (this.playerAnswer2 == this.correctAnswer2) {
+            this.score += 20
             document.getElementById("checkAnswer2").innerHTML = "You are Correct!" 
-            document.getElementById("q3").hidden = false
+            document.getElementById("score").innerHTML = "Total score: " + this.score 
+            document.getElementById("fieldset3").hidden = false
             document.getElementById("answers2").disabled = true; 
             document.getElementById("question3").hidden = false; 
             document.getElementById("answers3").hidden = false;
         } else {
+            
             document.getElementById("checkAnswer2").innerHTML = "Nope! Select again."
         }
     },
@@ -131,13 +134,16 @@ let trivia = {
         this.correctAnswer3 = document.getElementById("cAnswer3").value
 
         if (this.playerAnswer3 == this.correctAnswer3) {
+            this.score += 20
             document.getElementById("checkAnswer3").innerHTML = "You are Correct!" 
-            document.getElementById("q4").hidden = false
+            document.getElementById("score").innerHTML = "Total score: " + this.score 
+            document.getElementById("fieldset4").hidden = false
             document.getElementById("answers3").disabled = true; 
             document.getElementById("question4").hidden = false; 
             document.getElementById("answers4").hidden = false;
             
         } else {
+            
             document.getElementById("checkAnswer3").innerHTML = "Nope! Select again."
         }
     },
@@ -148,12 +154,15 @@ let trivia = {
         this.correctAnswer4 = document.getElementById("cAnswer4").value
 
         if (this.playerAnswer4 == this.correctAnswer4) {
+            this.score += 20
+            document.getElementById("score").innerHTML = "Total score: " + this.score 
             document.getElementById("checkAnswer4").innerHTML = "You are Correct!" 
-            document.getElementById("q5").hidden = false
+            document.getElementById("fieldset5").hidden = false
             document.getElementById("answers4").disabled = true; 
             document.getElementById("question5").hidden = false; 
             document.getElementById("answers5").hidden = false;
         } else {
+            
             document.getElementById("checkAnswer4").innerHTML = "Nope! Select again."
         }
     },
@@ -164,12 +173,14 @@ let trivia = {
         this.correctAnswer5 = document.getElementById("cAnswer5").value
 
         if (this.playerAnswer5 == this.correctAnswer5) {
+            this.score += 20
+            document.getElementById("score").innerHTML = "Total score: " + this.score 
             document.getElementById("checkAnswer5").innerHTML = "You are Correct!" 
-            document.getElementById("q5").hidden = false
+            document.getElementById("fieldset5").hidden = false
             document.getElementById("answers5").disabled = true; 
             document.getElementById("button2").hidden = true;
             document.getElementById("button1").hidden = false;
-
+            alert("Your scored " + this.score + "points!!")
             let confirmAction = confirm("You answered all correctly!!  Would you like to play again?")
             if (confirmAction) {
                 location.reload(true)
@@ -178,6 +189,7 @@ let trivia = {
             }
 
         } else {
+            
             document.getElementById("checkAnswer5").innerHTML = "Nope! Select again."
         }
     },
@@ -185,7 +197,3 @@ let trivia = {
 
 
 }
-
-       
-    
-         

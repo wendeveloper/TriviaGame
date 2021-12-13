@@ -13,13 +13,13 @@
         <form>
 
             <!--categories-->
-            Category:
+            Choose a Category:
             <select name="categories" id="categories" onChange="trivia.listQuestionsAndAnswers()">
                 <option value="">Select</option>
             </select><br><br>
             
 
-            <fieldset id="q1" hidden>   
+            <fieldset id="fieldset1" hidden>   
                 <legend>Question 1</legend>
                 <!--questions/answers selection-->
                 <p name="question1" id="question1" hidden></p>
@@ -29,7 +29,7 @@
                 <div id="checkAnswer1" ></div>      
             </fieldset>
 
-            <fieldset id="q2" hidden>  
+            <fieldset id="fieldset2" hidden>  
                 <legend>Question 2</legend>
                 <p name="question2" id="question2" hidden></p>
                 <select name="answers2" id="answers2" onChange="trivia.checkAnswer2()"  hidden>
@@ -38,7 +38,7 @@
                 <div id="checkAnswer2"></div>
             </fieldset>  
 
-            <fieldset id="q3" hidden>  
+            <fieldset id="fieldset3" hidden>  
                 <legend>Question 3</legend>
                 <p name="question3" id="question3" hidden></p>
                 <select name="answers3" id="answers3" onChange="trivia.checkAnswer3()"  hidden>
@@ -47,7 +47,7 @@
                 <div id="checkAnswer3"></div>
             </fieldset>   
 
-            <fieldset id="q4" hidden>  
+            <fieldset id="fieldset4" hidden>  
                 <legend>Question 4</legend>
                 <p name="question4" id="question4" hidden></p>
                 <select name="answers4" id="answers4" onChange="trivia.checkAnswer4()"  hidden>
@@ -56,7 +56,7 @@
                 <div id="checkAnswer4"></div>
             </fieldset> 
 
-            <fieldset id="q5" hidden>  
+            <fieldset id="fieldset5" hidden>  
                 <legend>Question 5</legend>
                 <p name="question5" id="question5" hidden></p>
                 <select name="answers5" id="answers5" onChange="trivia.checkAnswer5()"  hidden>
@@ -68,7 +68,7 @@
         </form>
         <br>
     </fieldset>
-    
+    <p id="score">Score:</p>
     <button id="button1" onClick="document.location.reload(true)"  hidden>Play again?</button>
   <hr>
     <button id="button2" onClick="document.location.reload(true)"  >Start over?</button>   
