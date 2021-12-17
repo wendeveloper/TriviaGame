@@ -1,6 +1,8 @@
 let trivia = {
    
     score: 0,
+    correctAnswer: [],
+    allAnswers: [[],[],[],[],[]],
     listCategories: function() {    
        
         //step 1: URL
@@ -52,26 +54,29 @@ let trivia = {
         xhr.onload = function() {
             console.log(JSON.parse(xhr.responseText))
             this.correctAnswer = []
-            this.incorrectAnswers = [[],[],[],[],[]]
+            this.allAnswers = [[],[],[],[],[]]
+
             let categoryQuestion = ""
             
             for( let i = 0; i < JSON.parse(xhr.responseText).length; i++) {
                 this.correctAnswer.push(JSON.parse(xhr.responseText)[i].correctAnswer)   //PUSH to correctAnswer array
-                
+                this.allAnswers[i].push(JSON.parse(xhr.responseText)[i].correctAnswer)   //PUSH to allAnswers array
+
                 categoryQuestion = JSON.parse(xhr.responseText)[i].question 
                 document.getElementById("question" + (i+1)).innerHTML = categoryQuestion
                   
                 let optionAnswer = "<option value='0'>Select Answer</option>"
                 
                 for( let j = 0; j < JSON.parse(xhr.responseText)[i].incorrectAnswers.length; j++) {
-                    this.incorrectAnswers.push(JSON.parse(xhr.responseText)[i].incorrectAnswers[j])   //PUSH to correctAnswer array
-                   
-                    //optionAnswer += '<option id="' + JSON.parse(xhr.responseText)[i].incorrectAnswers + '" value="' + JSON.parse(xhr.responseText)[i].incorrectAnswers + '">' + JSON.parse(xhr.responseText)[i].question + "</option>" 
-                    optionAnswer += '<option value="' + JSON.parse(xhr.responseText)[i].incorrectAnswers[j] + '">' + JSON.parse(xhr.responseText)[i].incorrectAnswers[j] + "</option>"           
+                    this.allAnswers[i].push(JSON.parse(xhr.responseText)[i].incorrectAnswers[j])  //PUSH to allAnswers array
                 } 
 
-                optionAnswer += '<option  id="cAnswer' + (i+1) + '" value="' + JSON.parse(xhr.responseText)[i].correctAnswer + '">' + JSON.parse(xhr.responseText)[i].correctAnswer + "</option>"                    
-                
+                this.allAnswers[i].sort((a, b) => 0.5 - Math.random());    //shuffle allAnswers array
+
+                for (let j = 0; j < this.allAnswers[i].length; j++){
+                    optionAnswer += '<option  id="cAnswer' + (i+1) + '" value="' + JSON.parse(xhr.responseText)[i].correctAnswer + '">' + this.allAnswers[i][j] + "</option>"
+                }
+
                 document.getElementById("answers" + (i+1)).innerHTML = optionAnswer  
                 
             }   
@@ -85,18 +90,18 @@ let trivia = {
     },
 
     checkAnswer1: function(){
+
         this.playerCategory = document.getElementById("categories").value
-        this.playerAnswer1 = document.getElementById("answers1").value 
-        this.correctAnswer1 = document.getElementById("cAnswer1").value
-     
+        this.playerAnswer1 = answers1.options[answers1.selectedIndex].innerHTML
+        //alert(this.playerAnswer1)
+        this.correctAnswer1 =  document.getElementById("cAnswer1").value
+        //alert(this.correctAnswer1)
+
         if (this.playerAnswer1 == this.correctAnswer1) {   
             this.score += 20    
             document.getElementById("checkAnswer1").innerHTML = "You are Correct!"
             document.getElementById("score").innerHTML = "Total score: " + this.score 
             document.getElementById("answers1").disabled = true; 
-        
-            //document.getElementById("q2").hidden = false; 
-            
             document.getElementById("fieldset2").hidden = false
             document.getElementById("question2").hidden = false; 
             document.getElementById("answers2").hidden = false; 
@@ -111,9 +116,10 @@ let trivia = {
     checkAnswer2: function(){
 
         this.playerCategory = document.getElementById("categories").value
-        this.playerAnswer2 = document.getElementById("answers2").value 
-        this.correctAnswer2 = document.getElementById("cAnswer2").value
-    
+        this.playerAnswer2 = answers2.options[answers2.selectedIndex].innerHTML
+        //alert(this.playerAnswer2)
+        this.correctAnswer2 =  document.getElementById("cAnswer2").value
+        //alert(this.correctAnswer2)
         if (this.playerAnswer2 == this.correctAnswer2) {
             this.score += 20
             document.getElementById("checkAnswer2").innerHTML = "You are Correct!" 
@@ -130,8 +136,10 @@ let trivia = {
     checkAnswer3: function(){
 
         this.playerCategory = document.getElementById("categories").value
-        this.playerAnswer3 = document.getElementById("answers3").value 
+        this.playerAnswer3 = answers3.options[answers3.selectedIndex].innerHTML
+        //alert(this.playerAnswer3)
         this.correctAnswer3 = document.getElementById("cAnswer3").value
+        //alert(this.correctAnswer3)
 
         if (this.playerAnswer3 == this.correctAnswer3) {
             this.score += 20
@@ -150,8 +158,10 @@ let trivia = {
     checkAnswer4: function(){
 
         this.playerCategory = document.getElementById("categories").value
-        this.playerAnswer4 = document.getElementById("answers4").value 
+        this.playerAnswer4 = answers4.options[answers4.selectedIndex].innerHTML
+        //alert(this.playerAnswer4)
         this.correctAnswer4 = document.getElementById("cAnswer4").value
+        //alert(this.correctAnswer4)
 
         if (this.playerAnswer4 == this.correctAnswer4) {
             this.score += 20
@@ -169,8 +179,10 @@ let trivia = {
     checkAnswer5: function(){
 
         this.playerCategory = document.getElementById("categories").value
-        this.playerAnswer5 = document.getElementById("answers5").value 
+        this.playerAnswer5 = answers5.options[answers5.selectedIndex].innerHTML
+        //alert(this.playerAnswer5)
         this.correctAnswer5 = document.getElementById("cAnswer5").value
+        //alert(this.correctAnswer5)
 
         if (this.playerAnswer5 == this.correctAnswer5) {
             this.score += 20
@@ -180,13 +192,13 @@ let trivia = {
             document.getElementById("answers5").disabled = true; 
             document.getElementById("button2").hidden = true;
             document.getElementById("button1").hidden = false;
-            alert("Your scored " + this.score + "points!!")
-            let confirmAction = confirm("You answered all correctly!!  Would you like to play again?")
-            if (confirmAction) {
-                location.reload(true)
-            } else {
+            //alert("Your scored " + this.score + "points!!")
+            //let confirmAction = confirm("You answered all correctly!!  Would you like to play again?")
+            //if (confirmAction) {
+            //    location.reload(true)
+            //} else {
                 //alert("no")
-            }
+            //}
 
         } else {
             
@@ -197,3 +209,7 @@ let trivia = {
 
 
 }
+
+       
+    
+         
