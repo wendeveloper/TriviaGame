@@ -67,14 +67,21 @@ let trivia = {
                   
                 let optionAnswer = "<option value='0'>Select Answer</option>"
                 
-                for( let j = 0; j < JSON.parse(xhr.responseText)[i].incorrectAnswers.length; j++) {
-                    this.allAnswers[i].push(JSON.parse(xhr.responseText)[i].incorrectAnswers[j])  //PUSH to allAnswers array
+                // for( let j = 0; j < JSON.parse(xhr.responseText)[i].incorrectAnswers.length; j++) {
+                for( let j = 0; j < 2; j++) {
+                    //this.allAnswers[i].push(JSON.parse(xhr.responseText)[i].incorrectAnswers[j])  //PUSH to allAnswers array
+                  
+                    let txtAnswer = JSON.parse(xhr.responseText)[i].incorrectAnswers[j]
+                    txtAnswer = txtAnswer.replace(/(^"|"$)/g, '')  //remove quotes
+                    this.allAnswers[i].push(txtAnswer)  //PUSH to allAnswers array
                 } 
 
                 this.allAnswers[i].sort((a, b) => 0.5 - Math.random());    //shuffle allAnswers array
 
                 for (let j = 0; j < this.allAnswers[i].length; j++){
-                    optionAnswer += '<option  id="cAnswer' + (i+1) + '" value="' + JSON.parse(xhr.responseText)[i].correctAnswer + '">' + this.allAnswers[i][j] + "</option>"
+                   optionAnswer += '<option  id="cAnswer' + (i+1) + '" value="' + JSON.parse(xhr.responseText)[i].correctAnswer + '">' + this.allAnswers[i][j] + "</option>"
+                   
+                 
                 }
 
                 document.getElementById("answers" + (i+1)).innerHTML = optionAnswer  
@@ -100,7 +107,7 @@ let trivia = {
         if (this.playerAnswer1 == this.correctAnswer1) {   
             this.score += 20    
             document.getElementById("checkAnswer1").innerHTML = "You are Correct!"
-            document.getElementById("score").innerHTML = "Total score: " + this.score 
+            //document.getElementById("score").innerHTML = "Total score: " + this.score 
             document.getElementById("answers1").disabled = true; 
             document.getElementById("fieldset2").hidden = false
             document.getElementById("question2").hidden = false; 
@@ -108,7 +115,7 @@ let trivia = {
 
         } else {
             
-            document.getElementById("score").innerHTML = "Total score: " + this.score 
+            //document.getElementById("score").innerHTML = "Total score: " + this.score 
             document.getElementById("checkAnswer1").innerHTML = "Nope! Select again."
             
         }
@@ -123,7 +130,7 @@ let trivia = {
         if (this.playerAnswer2 == this.correctAnswer2) {
             this.score += 20
             document.getElementById("checkAnswer2").innerHTML = "You are Correct!" 
-            document.getElementById("score").innerHTML = "Total score: " + this.score 
+            //document.getElementById("score").innerHTML = "Total score: " + this.score 
             document.getElementById("fieldset3").hidden = false
             document.getElementById("answers2").disabled = true; 
             document.getElementById("question3").hidden = false; 
@@ -144,7 +151,7 @@ let trivia = {
         if (this.playerAnswer3 == this.correctAnswer3) {
             this.score += 20
             document.getElementById("checkAnswer3").innerHTML = "You are Correct!" 
-            document.getElementById("score").innerHTML = "Total score: " + this.score 
+            //document.getElementById("score").innerHTML = "Total score: " + this.score 
             document.getElementById("fieldset4").hidden = false
             document.getElementById("answers3").disabled = true; 
             document.getElementById("question4").hidden = false; 
@@ -165,7 +172,7 @@ let trivia = {
 
         if (this.playerAnswer4 == this.correctAnswer4) {
             this.score += 20
-            document.getElementById("score").innerHTML = "Total score: " + this.score 
+            //document.getElementById("score").innerHTML = "Total score: " + this.score 
             document.getElementById("checkAnswer4").innerHTML = "You are Correct!" 
             document.getElementById("fieldset5").hidden = false
             document.getElementById("answers4").disabled = true; 
@@ -186,7 +193,7 @@ let trivia = {
 
         if (this.playerAnswer5 == this.correctAnswer5) {
             this.score += 20
-            document.getElementById("score").innerHTML = "Total score: " + this.score 
+            //document.getElementById("score").innerHTML = "Total score: " + this.score 
             document.getElementById("checkAnswer5").innerHTML = "You are Correct!" 
             document.getElementById("fieldset5").hidden = false
             document.getElementById("answers5").disabled = true; 

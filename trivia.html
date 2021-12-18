@@ -9,9 +9,9 @@
 <body onload="trivia.listCategories()" >
  
     <fieldset style="max-width: 250px;" >
-        <legend >Let's play Trivia</legend>
+        <legend >Let's play Trivia!</legend>
         <form>
-
+            <p>For each category, answer 5 questions</p>
             <!--categories-->
             Choose a Category:
             <select name="categories" id="categories" onChange="trivia.listQuestionsAndAnswers()">
@@ -68,7 +68,7 @@
         </form>
         <br>
     </fieldset>
-    <p id="score">Score:</p>
+    <!--<p id="score">Score:</p>-->
     <button id="button1" onClick="document.location.reload(true)"  hidden>Play again?</button>
   <hr>
     <button id="button2" onClick="document.location.reload(true)"  >Start over?</button>   
