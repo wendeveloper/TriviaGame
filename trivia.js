@@ -34,7 +34,7 @@ let trivia = {
     
     listQuestionsAndAnswers: function(){
         playerCategory = categories.options[categories.selectedIndex].value  //category selected by player
-       
+        document.getElementById("triviaRules").hidden = false
         document.getElementById("fieldset1").hidden = false
         document.getElementById("categories").disabled = true
         document.getElementById("question1").hidden = false

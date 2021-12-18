@@ -11,13 +11,14 @@
     <fieldset style="max-width: 250px;" >
         <legend >Let's play Trivia!</legend>
         <form>
-            <p>For each category, answer 5 questions</p>
+        
             <!--categories-->
             Choose a Category:
             <select name="categories" id="categories" onChange="trivia.listQuestionsAndAnswers()">
                 <option value="">Select</option>
             </select><br><br>
             
+            <p id="triviaRules" hidden>Here is your question.  Once answered correctly, you will receive another question, up to total of 5 questions for this category.</p>
 
             <fieldset id="fieldset1" hidden>   
                 <legend>Question 1</legend>
