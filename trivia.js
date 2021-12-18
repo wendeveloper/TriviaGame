@@ -83,7 +83,9 @@ let trivia = {
                 this.allAnswers[i].sort((a, b) => 0.5 - Math.random());    //shuffle allAnswers array
 
                 for (let j = 0; j < this.allAnswers[i].length; j++){
-                   optionAnswer += '<option  id="cAnswer' + (i+1) + '" value="' + JSON.parse(xhr.responseText)[i].correctAnswer + '">' + this.allAnswers[i][j] + "</option>"
+                   //optionAnswer += '<option  id="cAnswer' + (i+1) + '" value="' + JSON.parse(xhr.responseText)[i].correctAnswer + '">' + this.allAnswers[i][j] + "</option>"
+                   
+                   optionAnswer += '<option  id="cAnswer' + (i+1) + '" value="' + this.correctAnswer[i] + '">' + this.allAnswers[i][j] + "</option>"
                    
                  
                 }
