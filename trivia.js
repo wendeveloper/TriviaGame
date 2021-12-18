@@ -59,8 +59,12 @@ let trivia = {
             let categoryQuestion = ""
             
             for( let i = 0; i < JSON.parse(xhr.responseText).length; i++) {
-                this.correctAnswer.push(JSON.parse(xhr.responseText)[i].correctAnswer)   //PUSH to correctAnswer array
-                this.allAnswers[i].push(JSON.parse(xhr.responseText)[i].correctAnswer)   //PUSH to allAnswers array
+                //this.correctAnswer.push(JSON.parse(xhr.responseText)[i].correctAnswer)   //PUSH to correctAnswer array
+                //this.allAnswers[i].push(JSON.parse(xhr.responseText)[i].correctAnswer)   //PUSH to allAnswers array
+                let txtCorrectAnswer = JSON.parse(xhr.responseText)[i].correctAnswer
+                txtCorrectAnswer = txtCorrectAnswer.replace(/(^"|"$)/g, '')  //remove quotes
+                this.correctAnswer.push(txtCorrectAnswer)   //PUSH to correctAnswer array
+                this.allAnswers[i].push(txtCorrectAnswer)   //PUSH to allAnswers array
 
                 categoryQuestion = JSON.parse(xhr.responseText)[i].question 
                 document.getElementById("question" + (i+1)).innerHTML = categoryQuestion
@@ -71,9 +75,9 @@ let trivia = {
                 for( let j = 0; j < 2; j++) {
                     //this.allAnswers[i].push(JSON.parse(xhr.responseText)[i].incorrectAnswers[j])  //PUSH to allAnswers array
                   
-                    let txtAnswer = JSON.parse(xhr.responseText)[i].incorrectAnswers[j]
-                    txtAnswer = txtAnswer.replace(/(^"|"$)/g, '')  //remove quotes
-                    this.allAnswers[i].push(txtAnswer)  //PUSH to allAnswers array
+                    let txtIncorrectAnswer = JSON.parse(xhr.responseText)[i].incorrectAnswers[j]
+                    txtIncorrectAnswer = txtIncorrectAnswer.replace(/(^"|"$)/g, '')  //remove quotes
+                    this.allAnswers[i].push(txtIncorrectAnswer)  //PUSH to allAnswers array
                 } 
 
                 this.allAnswers[i].sort((a, b) => 0.5 - Math.random());    //shuffle allAnswers array
