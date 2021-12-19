@@ -7,26 +7,26 @@
     <title>Trivia</title>
 </head>
 <body onload="trivia.listCategories()" >
- 
+ Version 1
     <fieldset style="max-width: 250px;" >
         <legend >Let's play Trivia!</legend>
-        <form>
+        <form >
         
-            <p id="triviaRules" >
+            <ul id="triviaRules" style="background-color:powderblue;">
                 <li>Pick a category</li>
                 <li>Answer five questions</li>
                 <li>Questions are worth 20 points.</li>
-                Good luck!
-            </p>
+                <li>Good luck!</li>
+            </ul>
 
             <!--categories-->
             Choose a Category:
-            <select name="categories" id="categories" onChange="trivia.listQuestionsAndAnswers()">
+            <select name="categories" id="categories" onChange="trivia.listQuestionsAndAnswers()" >
                 <option value="">Select</option>
             </select><br><br>
             
-            <fieldset id="fieldset1" hidden>   
-                <legend>Question 1</legend>
+            <fieldset id="fieldset1" hidden style="background-color:powderblue;">   
+                <legend >Question 1</legend>
                 <!--questions/answers selection-->
                 <p name="question1" id="question1" hidden></p>
                 <select name="answers1" id="answers1" onChange="trivia.checkAnswer1()"  hidden>
@@ -35,8 +35,8 @@
                 <div id="checkAnswer1" ></div>      
             </fieldset>
 
-            <fieldset id="fieldset2" hidden>  
-                <legend>Question 2</legend>
+            <fieldset id="fieldset2" hidden style="background-color:powderblue;">  
+                <legend >Question 2</legend>
                 <p name="question2" id="question2" hidden></p>
                 <select name="answers2" id="answers2" onChange="trivia.checkAnswer2()"  hidden>
                     <option value="" >Select</option>
@@ -44,8 +44,8 @@
                 <div id="checkAnswer2"></div>
             </fieldset>  
 
-            <fieldset id="fieldset3" hidden>  
-                <legend>Question 3</legend>
+            <fieldset id="fieldset3" hidden style="background-color:powderblue;">  
+                <legend >Question 3</legend>
                 <p name="question3" id="question3" hidden></p>
                 <select name="answers3" id="answers3" onChange="trivia.checkAnswer3()"  hidden>
                     <option value="" >Select</option>
@@ -53,8 +53,8 @@
                 <div id="checkAnswer3"></div>
             </fieldset>   
 
-            <fieldset id="fieldset4" hidden>  
-                <legend>Question 4</legend>
+            <fieldset id="fieldset4" hidden style="background-color:powderblue;">  
+                <legend >Question 4</legend>
                 <p name="question4" id="question4" hidden></p>
                 <select name="answers4" id="answers4" onChange="trivia.checkAnswer4()"  hidden>
                     <option value="" >Select</option>
@@ -62,8 +62,8 @@
                 <div id="checkAnswer4"></div>
             </fieldset> 
 
-            <fieldset id="fieldset5" hidden>  
-                <legend>Question 5</legend>
+            <fieldset id="fieldset5" hidden style="background-color:powderblue;">  
+                <legend >Question 5</legend>
                 <p name="question5" id="question5" hidden></p>
                 <select name="answers5" id="answers5" onChange="trivia.checkAnswer5()"  hidden>
                     <option value="" >Select</option>
@@ -75,8 +75,8 @@
         <br>
     </fieldset>
     <hr>
-    <p id="score">Score:</p>
-    <button id="button1" onClick="document.location.reload(true)"  hidden>Play again?</button>
+    <p id="score" style="font-size:40px;" style="background-color:powderblue;">Score:</p>
+    <button id="button1" hidden onClick="trivia.playAgain()"   style="height:25px;width:100px;background-color:powderblue; ">Play again?</button>
   
     <!--<button id="button2" onClick="document.location.reload(true)"  >Start over?</button> -->  
     <br>

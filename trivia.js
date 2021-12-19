@@ -117,7 +117,7 @@ let trivia = {
         if (this.playerAnswer1 == this.correctAnswer1) {   
             this.score += 20    
             document.getElementById("checkAnswer1").innerHTML = "You are Correct!"
-            document.getElementById("score").innerHTML = "Total score: " + this.score 
+            document.getElementById("score").innerHTML = "Score: " + this.score 
             document.getElementById("answers1").disabled = true; 
             document.getElementById("fieldset2").hidden = false
             document.getElementById("question2").hidden = false; 
@@ -131,7 +131,7 @@ let trivia = {
             document.getElementById("fieldset2").hidden = false
             document.getElementById("question2").hidden = false; 
             document.getElementById("answers2").hidden = false; 
-            
+            document.getElementById("score").innerHTML = "Score: " + this.score 
         }
     },    
     checkAnswer2: function(){
@@ -144,7 +144,7 @@ let trivia = {
         if (this.playerAnswer2 == this.correctAnswer2) {
             this.score += 20
             document.getElementById("checkAnswer2").innerHTML = "You are Correct!" 
-            document.getElementById("score").innerHTML = "Total score: " + this.score 
+            document.getElementById("score").innerHTML = "Score: " + this.score 
             document.getElementById("fieldset3").hidden = false
             document.getElementById("answers2").disabled = true; 
             document.getElementById("question3").hidden = false; 
@@ -169,7 +169,7 @@ let trivia = {
         if (this.playerAnswer3 == this.correctAnswer3) {
             this.score += 20
             document.getElementById("checkAnswer3").innerHTML = "You are Correct!" 
-            document.getElementById("score").innerHTML = "Total score: " + this.score 
+            document.getElementById("score").innerHTML = "Score: " + this.score 
             document.getElementById("fieldset4").hidden = false
             document.getElementById("answers3").disabled = true; 
             document.getElementById("question4").hidden = false; 
@@ -195,7 +195,7 @@ let trivia = {
 
         if (this.playerAnswer4 == this.correctAnswer4) {
             this.score += 20
-            document.getElementById("score").innerHTML = "Total score: " + this.score 
+            document.getElementById("score").innerHTML = "Score: " + this.score 
             document.getElementById("checkAnswer4").innerHTML = "You are Correct!" 
             document.getElementById("fieldset5").hidden = false
             document.getElementById("answers4").disabled = true; 
@@ -226,15 +226,7 @@ let trivia = {
             document.getElementById("fieldset5").hidden = false
             document.getElementById("answers5").disabled = true; 
            // document.getElementById("button2").hidden = true;
-            document.getElementById("button1").hidden = false;
-           
-            //alert("Your scored " + this.score + "points!!")
-            //let confirmAction = confirm("You answered all correctly!!  Would you like to play again?")
-            //if (confirmAction) {
-            //    location.reload(true)
-            //} else {
-                //alert("no")
-            //}
+            document.getElementById("button1").hidden = false;     
 
         } else {
             
@@ -244,12 +236,24 @@ let trivia = {
             document.getElementById("answers5").disabled = true; 
             //document.getElementById("button2").hidden = true;
             document.getElementById("button1").hidden = false;
+            document.getElementById("score").innerHTML = "Total score: " + this.score 
             
         }
         
-    },
         
+    },
 
+    playAgain: function(){
+
+        alert("You scored " + this.score + "points!!")
+        let confirmAction = confirm("Would you like to play again?")
+            if (confirmAction) {
+                location.reload(true)
+            } else {
+                alert("Thanks for playing my crazy trivia game.")
+            }
+    }
+        
 
 }
 
