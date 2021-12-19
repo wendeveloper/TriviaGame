@@ -62,7 +62,8 @@ let trivia = {
                 //this.correctAnswer.push(JSON.parse(xhr.responseText)[i].correctAnswer)   //PUSH to correctAnswer array
                 //this.allAnswers[i].push(JSON.parse(xhr.responseText)[i].correctAnswer)   //PUSH to allAnswers array
                 let txtCorrectAnswer = JSON.parse(xhr.responseText)[i].correctAnswer
-                txtCorrectAnswer = txtCorrectAnswer.replace(/(^"|"$)/g, '')  //remove quotes
+                
+                txtCorrectAnswer = txtCorrectAnswer.replace(/["]+/g, '')
                 this.correctAnswer.push(txtCorrectAnswer)   //PUSH to correctAnswer array
                 this.allAnswers[i].push(txtCorrectAnswer)   //PUSH to allAnswers array
 
@@ -76,8 +77,11 @@ let trivia = {
                     //this.allAnswers[i].push(JSON.parse(xhr.responseText)[i].incorrectAnswers[j])  //PUSH to allAnswers array
                   
                     let txtIncorrectAnswer = JSON.parse(xhr.responseText)[i].incorrectAnswers[j]
-                    txtIncorrectAnswer = txtIncorrectAnswer.replace(/(^"|"$)/g, '')  //remove quotes
-                    this.allAnswers[i].push(txtIncorrectAnswer)  //PUSH to allAnswers array
+                    if (txtIncorrectAnswer != null) {
+                        
+                        txtIncorrectAnswer = txtIncorrectAnswer.replace(/["]+/g, '')
+                        this.allAnswers[i].push(txtIncorrectAnswer)  //PUSH to allAnswers array
+                    }
                 } 
 
                 this.allAnswers[i].sort((a, b) => 0.5 - Math.random());    //shuffle allAnswers array
@@ -106,9 +110,9 @@ let trivia = {
 
         this.playerCategory = document.getElementById("categories").value
         this.playerAnswer1 = answers1.options[answers1.selectedIndex].innerHTML
-        //alert(this.playerAnswer1)
+        alert(this.playerAnswer1)
         this.correctAnswer1 =  document.getElementById("cAnswer1").value
-        //alert(this.correctAnswer1)
+        alert(this.correctAnswer1)
 
         if (this.playerAnswer1 == this.correctAnswer1) {   
             this.score += 20    
@@ -130,9 +134,9 @@ let trivia = {
 
         this.playerCategory = document.getElementById("categories").value
         this.playerAnswer2 = answers2.options[answers2.selectedIndex].innerHTML
-        //alert(this.playerAnswer2)
+        alert(this.playerAnswer2)
         this.correctAnswer2 =  document.getElementById("cAnswer2").value
-        //alert(this.correctAnswer2)
+        alert(this.correctAnswer2)
         if (this.playerAnswer2 == this.correctAnswer2) {
             this.score += 20
             document.getElementById("checkAnswer2").innerHTML = "You are Correct!" 
@@ -150,9 +154,9 @@ let trivia = {
 
         this.playerCategory = document.getElementById("categories").value
         this.playerAnswer3 = answers3.options[answers3.selectedIndex].innerHTML
-        //alert(this.playerAnswer3)
+        alert(this.playerAnswer3)
         this.correctAnswer3 = document.getElementById("cAnswer3").value
-        //alert(this.correctAnswer3)
+        alert(this.correctAnswer3)
 
         if (this.playerAnswer3 == this.correctAnswer3) {
             this.score += 20
@@ -172,9 +176,9 @@ let trivia = {
 
         this.playerCategory = document.getElementById("categories").value
         this.playerAnswer4 = answers4.options[answers4.selectedIndex].innerHTML
-        //alert(this.playerAnswer4)
+        alert(this.playerAnswer4)
         this.correctAnswer4 = document.getElementById("cAnswer4").value
-        //alert(this.correctAnswer4)
+        alert(this.correctAnswer4)
 
         if (this.playerAnswer4 == this.correctAnswer4) {
             this.score += 20
@@ -193,9 +197,9 @@ let trivia = {
 
         this.playerCategory = document.getElementById("categories").value
         this.playerAnswer5 = answers5.options[answers5.selectedIndex].innerHTML
-        //alert(this.playerAnswer5)
+        alert(this.playerAnswer5)
         this.correctAnswer5 = document.getElementById("cAnswer5").value
-        //alert(this.correctAnswer5)
+        alert(this.correctAnswer5)
 
         if (this.playerAnswer5 == this.correctAnswer5) {
             this.score += 20
