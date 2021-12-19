@@ -110,14 +110,14 @@ let trivia = {
 
         this.playerCategory = document.getElementById("categories").value
         this.playerAnswer1 = answers1.options[answers1.selectedIndex].innerHTML
-        alert(this.playerAnswer1)
+        //alert(this.playerAnswer1)
         this.correctAnswer1 =  document.getElementById("cAnswer1").value
-        alert(this.correctAnswer1)
+        //alert(this.correctAnswer1)
 
         if (this.playerAnswer1 == this.correctAnswer1) {   
             this.score += 20    
             document.getElementById("checkAnswer1").innerHTML = "You are Correct!"
-            //document.getElementById("score").innerHTML = "Total score: " + this.score 
+            document.getElementById("score").innerHTML = "Total score: " + this.score 
             document.getElementById("answers1").disabled = true; 
             document.getElementById("fieldset2").hidden = false
             document.getElementById("question2").hidden = false; 
@@ -125,8 +125,12 @@ let trivia = {
 
         } else {
             
-            //document.getElementById("score").innerHTML = "Total score: " + this.score 
-            document.getElementById("checkAnswer1").innerHTML = "Nope! Select again."
+            //document.getElementById("checkAnswer1").innerHTML = "Nope! Select again."
+            document.getElementById("checkAnswer1").innerHTML = "You answered " + this.playerAnswer1 + ", but the correct answer is " + this.correctAnswer1 
+            document.getElementById("answers1").disabled = true; 
+            document.getElementById("fieldset2").hidden = false
+            document.getElementById("question2").hidden = false; 
+            document.getElementById("answers2").hidden = false; 
             
         }
     },    
@@ -134,34 +138,38 @@ let trivia = {
 
         this.playerCategory = document.getElementById("categories").value
         this.playerAnswer2 = answers2.options[answers2.selectedIndex].innerHTML
-        alert(this.playerAnswer2)
+       // alert(this.playerAnswer2)
         this.correctAnswer2 =  document.getElementById("cAnswer2").value
-        alert(this.correctAnswer2)
+       // alert(this.correctAnswer2)
         if (this.playerAnswer2 == this.correctAnswer2) {
             this.score += 20
             document.getElementById("checkAnswer2").innerHTML = "You are Correct!" 
-            //document.getElementById("score").innerHTML = "Total score: " + this.score 
+            document.getElementById("score").innerHTML = "Total score: " + this.score 
             document.getElementById("fieldset3").hidden = false
             document.getElementById("answers2").disabled = true; 
             document.getElementById("question3").hidden = false; 
             document.getElementById("answers3").hidden = false;
         } else {
             
-            document.getElementById("checkAnswer2").innerHTML = "Nope! Select again."
+            document.getElementById("checkAnswer2").innerHTML = "You answered " + this.playerAnswer2 + ", but the correct answer is " + this.correctAnswer2 
+            document.getElementById("fieldset3").hidden = false
+            document.getElementById("answers2").disabled = true; 
+            document.getElementById("question3").hidden = false; 
+            document.getElementById("answers3").hidden = false;
         }
     },
     checkAnswer3: function(){
 
         this.playerCategory = document.getElementById("categories").value
         this.playerAnswer3 = answers3.options[answers3.selectedIndex].innerHTML
-        alert(this.playerAnswer3)
+       // alert(this.playerAnswer3)
         this.correctAnswer3 = document.getElementById("cAnswer3").value
-        alert(this.correctAnswer3)
+      //  alert(this.correctAnswer3)
 
         if (this.playerAnswer3 == this.correctAnswer3) {
             this.score += 20
             document.getElementById("checkAnswer3").innerHTML = "You are Correct!" 
-            //document.getElementById("score").innerHTML = "Total score: " + this.score 
+            document.getElementById("score").innerHTML = "Total score: " + this.score 
             document.getElementById("fieldset4").hidden = false
             document.getElementById("answers3").disabled = true; 
             document.getElementById("question4").hidden = false; 
@@ -169,20 +177,25 @@ let trivia = {
             
         } else {
             
-            document.getElementById("checkAnswer3").innerHTML = "Nope! Select again."
+            //document.getElementById("checkAnswer3").innerHTML = "Nope! Select again."
+            document.getElementById("checkAnswer3").innerHTML = "You answered " + this.playerAnswer3 + ", but the correct answer is " + this.correctAnswer3  
+            document.getElementById("fieldset4").hidden = false
+            document.getElementById("answers3").disabled = true; 
+            document.getElementById("question4").hidden = false; 
+            document.getElementById("answers4").hidden = false;
         }
     },
     checkAnswer4: function(){
 
         this.playerCategory = document.getElementById("categories").value
         this.playerAnswer4 = answers4.options[answers4.selectedIndex].innerHTML
-        alert(this.playerAnswer4)
+      //  alert(this.playerAnswer4)
         this.correctAnswer4 = document.getElementById("cAnswer4").value
-        alert(this.correctAnswer4)
+      //  alert(this.correctAnswer4)
 
         if (this.playerAnswer4 == this.correctAnswer4) {
             this.score += 20
-            //document.getElementById("score").innerHTML = "Total score: " + this.score 
+            document.getElementById("score").innerHTML = "Total score: " + this.score 
             document.getElementById("checkAnswer4").innerHTML = "You are Correct!" 
             document.getElementById("fieldset5").hidden = false
             document.getElementById("answers4").disabled = true; 
@@ -190,25 +203,31 @@ let trivia = {
             document.getElementById("answers5").hidden = false;
         } else {
             
-            document.getElementById("checkAnswer4").innerHTML = "Nope! Select again."
+            //document.getElementById("checkAnswer4").innerHTML = "Nope! Select again."
+            document.getElementById("checkAnswer4").innerHTML = "You answered " + this.playerAnswer4 + ", but the correct answer is " + this.correctAnswer4  
+            document.getElementById("fieldset5").hidden = false
+            document.getElementById("answers4").disabled = true; 
+            document.getElementById("question5").hidden = false; 
+            document.getElementById("answers5").hidden = false;
         }
     },
     checkAnswer5: function(){
 
         this.playerCategory = document.getElementById("categories").value
         this.playerAnswer5 = answers5.options[answers5.selectedIndex].innerHTML
-        alert(this.playerAnswer5)
+       // alert(this.playerAnswer5)
         this.correctAnswer5 = document.getElementById("cAnswer5").value
-        alert(this.correctAnswer5)
+      //  alert(this.correctAnswer5)
 
         if (this.playerAnswer5 == this.correctAnswer5) {
             this.score += 20
-            //document.getElementById("score").innerHTML = "Total score: " + this.score 
+            document.getElementById("score").innerHTML = "Total score: " + this.score 
             document.getElementById("checkAnswer5").innerHTML = "You are Correct!" 
             document.getElementById("fieldset5").hidden = false
             document.getElementById("answers5").disabled = true; 
-            document.getElementById("button2").hidden = true;
+           // document.getElementById("button2").hidden = true;
             document.getElementById("button1").hidden = false;
+           
             //alert("Your scored " + this.score + "points!!")
             //let confirmAction = confirm("You answered all correctly!!  Would you like to play again?")
             //if (confirmAction) {
@@ -219,8 +238,15 @@ let trivia = {
 
         } else {
             
-            document.getElementById("checkAnswer5").innerHTML = "Nope! Select again."
+            //document.getElementById("checkAnswer5").innerHTML = "Nope! Select again."
+            document.getElementById("checkAnswer5").innerHTML = "You answered " + this.playerAnswer5 + ", but the correct answer is " + this.correctAnswer5  
+            document.getElementById("fieldset5").hidden = false
+            document.getElementById("answers5").disabled = true; 
+            //document.getElementById("button2").hidden = true;
+            document.getElementById("button1").hidden = false;
+            
         }
+        
     },
         
 

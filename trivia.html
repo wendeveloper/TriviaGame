@@ -12,14 +12,19 @@
         <legend >Let's play Trivia!</legend>
         <form>
         
+            <p id="triviaRules" >
+                <li>Pick a category</li>
+                <li>Answer five questions</li>
+                <li>Questions are worth 20 points.</li>
+                Good luck!
+            </p>
+
             <!--categories-->
             Choose a Category:
             <select name="categories" id="categories" onChange="trivia.listQuestionsAndAnswers()">
                 <option value="">Select</option>
             </select><br><br>
             
-            <p id="triviaRules" hidden>Here is your question.  Once answered correctly, you will receive another question, up to total of 5 questions for this category.</p>
-
             <fieldset id="fieldset1" hidden>   
                 <legend>Question 1</legend>
                 <!--questions/answers selection-->
@@ -69,11 +74,11 @@
         </form>
         <br>
     </fieldset>
-
-    <!--<p id="score">Score:</p>-->
+    <hr>
+    <p id="score">Score:</p>
     <button id="button1" onClick="document.location.reload(true)"  hidden>Play again?</button>
-  <hr>
-    <button id="button2" onClick="document.location.reload(true)"  >Start over?</button>   
+  
+    <!--<button id="button2" onClick="document.location.reload(true)"  >Start over?</button> -->  
     <br>
     <br>
     <br>
